@@ -1,6 +1,6 @@
-import { connect } from 'react-redux';
-import { initializeQA } from '../actions/initializeQA';
-import QA1 from '../components/QA/QA1.js';
+import { connect } from "react-redux";
+import { initializeQA } from "../actions/InitializeQA";
+import QA1 from "../components/qa/QA1.js";
 
 const mapStateToProps = store => ({
   store: store

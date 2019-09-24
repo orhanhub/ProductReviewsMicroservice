@@ -1,8 +1,8 @@
-import React, { Fragment } from 'react';
-import { validate } from './ValidateForm';
-import { connect } from 'react-redux';
-import { clickTracker } from '../overview/helpers.js';
-import { postQuestion } from '../../actions/PostQ';
+import React, { Fragment } from "react";
+import { validate } from "./ValidateForm";
+import { connect } from "react-redux";
+import { clickTracker } from "../overview/helpers.js";
+import { postQuestion } from "../../actions/postQ";
 import {
   Dialog,
   DialogContent,
@@ -16,35 +16,35 @@ import {
   Box,
   InputLabel,
   Typography
-} from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+} from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    textAlign: 'center'
+    textAlign: "center"
   },
   checkMark: {
     width: 50,
     height: 50,
-    color: 'green'
+    color: "green"
   }
 }));
 
 const defaultForm = {
-  question: '',
-  name: '',
-  email: ''
+  question: "",
+  name: "",
+  email: ""
 };
 const renderErrors = errorList => {
   if (!errorList || errorList.length === 0) {
     return;
   } else {
     return (
-      <ul className='errors'>
+      <ul className="errors">
         You must enter the following:
         {Object.values(errorList).map(err => {
           return (
-            <li className='error' key={err}>
+            <li className="error" key={err}>
               {err}
             </li>
           );
@@ -69,8 +69,8 @@ const QuestionForm = ({ productName, productId, postQuestion }) => {
   };
 
   const handleSubmit = e => {
-    clickTracker('submitQuestionForm', 'QandA');
-    let errorList = validate(form, 'question', null);
+    clickTracker("submitQuestionForm", "QandA");
+    let errorList = validate(form, "question", null);
     setErrors(errorList);
     if (!errorList) {
       postQuestion(Object.assign(form, { productId: productId }));
@@ -79,12 +79,12 @@ const QuestionForm = ({ productName, productId, postQuestion }) => {
   };
 
   function handleClickOpen() {
-    clickTracker('openQuestionForm', 'QandA');
+    clickTracker("openQuestionForm", "QandA");
     setOpen(true);
   }
 
   function handleClose() {
-    clickTracker('closeQuestionForm', 'QandA');
+    clickTracker("closeQuestionForm", "QandA");
     setOpen(false);
     setForm(defaultForm);
     setErrors(false);
@@ -93,16 +93,17 @@ const QuestionForm = ({ productName, productId, postQuestion }) => {
 
   return (
     <Fragment>
-      <Button variant='outlined' onClick={handleClickOpen}>
+      <Button variant="outlined" onClick={handleClickOpen}>
         Add a question +
       </Button>
       <Dialog
-        maxWidth='sm'
+        maxWidth="sm"
         fullWidth={!success}
         open={open}
         onClose={handleClose}
         onClick={success ? handleClose : () => {}}
-        aria-labelledby='form-dialog-title'>
+        aria-labelledby="form-dialog-title"
+      >
         {success ? (
           <Fragment>
             <DialogTitle>Success! Thanks for posting a question.</DialogTitle>
@@ -115,15 +116,16 @@ const QuestionForm = ({ productName, productId, postQuestion }) => {
               {renderErrors(error)}
               <form>
                 <InputLabel
-                  htmlFor='questionarea'
+                  htmlFor="questionarea"
                   required
-                  error={error.question ? true : false}>
+                  error={error.question ? true : false}
+                >
                   Your question
                 </InputLabel>
                 <TextField
-                  id='questionarea'
-                  label='Your Question'
-                  placeholder='Enter Your Question'
+                  id="questionarea"
+                  label="Your Question"
+                  placeholder="Enter Your Question"
                   multiline
                   required
                   inputProps={{ maxLength: 1000 }}
@@ -131,58 +133,61 @@ const QuestionForm = ({ productName, productId, postQuestion }) => {
                   onChange={handleChange.bind(this)}
                   value={form.question}
                   error={error.question ? true : false}
-                  name='question'
+                  name="question"
                 />
                 <InputLabel
-                  htmlFor='nickname'
+                  htmlFor="nickname"
                   required
-                  error={error.name ? true : false}>
+                  error={error.name ? true : false}
+                >
                   What is your nickname
                 </InputLabel>
                 <TextField
-                  id='nickname'
+                  id="nickname"
                   required
-                  label='What is your nickname'
-                  placeholder='Example:jack543!'
+                  label="What is your nickname"
+                  placeholder="Example:jack543!"
                   fullWidth
                   required
-                  helperText='For privacy reasons, do not use your full name or email address'
+                  helperText="For privacy reasons, do not use your full name or email address"
                   onChange={handleChange.bind(this)}
                   value={form.name}
-                  name='name'
+                  name="name"
                   error={error.name ? true : false}
                 />
                 <InputLabel
-                  htmlFor='email'
+                  htmlFor="email"
                   required
-                  error={error.email ? true : false}>
+                  error={error.email ? true : false}
+                >
                   Your email
                 </InputLabel>
                 <TextField
-                  id='email'
+                  id="email"
                   required
                   fullWidth
                   inputProps={{ maxLength: 60 }}
-                  placeholder='email@email.com'
-                  helperText='For authentication reasons, you will not be emailed'
+                  placeholder="email@email.com"
+                  helperText="For authentication reasons, you will not be emailed"
                   onChange={handleChange.bind(this)}
                   value={form.email}
                   error={error.email ? true : false}
-                  name='email'
+                  name="email"
                 />
               </form>
             </DialogContent>
             <DialogActions>
-              <Grid container justify='flex-end'>
-                <Button color='secondary' onClick={handleClose}>
+              <Grid container justify="flex-end">
+                <Button color="secondary" onClick={handleClose}>
                   cancel
                 </Button>
                 <Button
-                  color='primary'
+                  color="primary"
                   onClick={e => {
                     event.preventDefault();
                     handleSubmit();
-                  }}>
+                  }}
+                >
                   Submit
                 </Button>
               </Grid>

@@ -241,7 +241,7 @@
 }
 .select-selected:after {
   position: absolute;
-  content: '';
+  content: "";
   top: 14px;
   right: 10px;
   width: 0;
@@ -253,12 +253,9 @@
   border-color: transparent transparent #fff transparent;
   top: 7px;
 }
-<<<<<<< HEAD
+
 .select-items div,
 .select-selected {
-=======
-.select-items div,.select-selected {
->>>>>>> 71821dd6bf9b070eec26c6ef9e66bc698325976c
   color: black;
   padding: 8px 16px;
   border: 1px solid transparent;
