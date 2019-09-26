@@ -10,9 +10,9 @@ import "./reviews.css";
 import { toggle } from "../../../../toggle";
 let endpoint;
 if (toggle) {
-  endpoint = "http://localhost:3000/reviews";
-} else {
   endpoint = "/reviews";
+} else {
+  endpoint = "http://18.217.220.129/reviews";
 }
 
 class ReviewsList extends React.Component {

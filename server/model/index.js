@@ -1,6 +1,8 @@
 //Environment
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost:27017/dryrun", { useNewUrlParser: true });
+// mongoose.connect("mongodb://localhost:27017/dryrun", { useNewUrlParser: true });
+mongoose.connect("mongodb://mongo:27017/test", { useNewUrlParser: true });
+
 const db = mongoose.connection;
 
 //Required files used in this module
