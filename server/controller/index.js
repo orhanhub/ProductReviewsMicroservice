@@ -81,9 +81,7 @@ exports.retrieveMeta = (req, res) => {
     });
 };
 
-exports.postReview = (req, res) => {
-  console.log(req);
-};
+exports.postReview = (req, res) => {};
 
 //TODO: Post Report
 exports.postRepot = (req, res) => {};

@@ -14,6 +14,14 @@ const { toggle } = require("../toggle.js");
 const reviews = require("./router/router.js");
 app.use("/reviews", reviews);
 
+var bodyParser = require("body-parser");
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+app.post("/reviews/:product_id", (req, res) => {
+  console.log(req.body);
+  res.sendStatus(201);
+});
 app.use(express.static("./client/dist"));
 app.use("/products/:id", express.static("./client/dist"));
 

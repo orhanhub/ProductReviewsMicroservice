@@ -42,7 +42,6 @@ class ReviewSubmission extends React.Component {
 
   getCharacteristics() {
     let characteristics = this.props.characteristics;
-    console.log("chars are at line45", characteristics);
     let charsTable = this.props.charsTable;
     let newArr = [];
     let charVals = {};
@@ -119,7 +118,6 @@ class ReviewSubmission extends React.Component {
         submission
       )
       .then(response => {
-        //console.log(response);
         this.setState({
           showing: false,
           starsArr: [0, 0, 0, 0, 0],
@@ -187,7 +185,7 @@ class ReviewSubmission extends React.Component {
     this.setState({
       characteristics: newChars
     });
-    console.log(this.state);
+    console.log("review submission line 189", this.state);
   }
 
   handleChange(event) {

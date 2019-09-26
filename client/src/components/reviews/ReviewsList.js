@@ -23,7 +23,6 @@ class ReviewsList extends React.Component {
         `${endpoint}/${product_id}/list?count=100&sort=${sort}`
       )
       .then(data => {
-        console.log(data.data);
         let newData = data.data;
         newData.product_id = this.props.store.mainItem.product_id;
         this.props.reviewsListAction(newData);

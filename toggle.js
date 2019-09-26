@@ -4,4 +4,4 @@
 
 // impacts ReviewsList and ReviewsMeta files
 // True case SDC API is active; False case native API is active
-module.exports.toggle = false;
+module.exports.toggle = true;
