@@ -3,13 +3,31 @@ const {
   retrieveListQuery,
   characteristics,
   ratings,
-  recommended
+  recommended,
+  retrieveone
 } = require("../model/index");
 
 //TODO: post controllers to be built below:
 
 //router.post("/report/:review_id", reportReview)
 //router.post("/helpful/:review_id", helpfulReview)
+
+//Retrieve List of Reviews:
+exports.retrieveOneList = (req, res) => {
+  let parameter = req.params.product_id;
+  retrieveone(parameter)
+    .then(result => {
+      let modifiedresult = {
+        product: parameter,
+        results: result
+      };
+      res.status(200).send(modifiedresult);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).send("an internal error occurred");
+    });
+};
 
 //Retrieve List of Reviews:
 exports.retrieveList = (req, res) => {

@@ -1,6 +1,9 @@
 //Environment
 const mongoose = require("mongoose");
-// mongoose.connect("mongodb://localhost:27017/dryrun", { useNewUrlParser: true });
+// mongoose.connect("mongodb://localhost:27017/test", {
+//   useNewUrlParser: true,
+//   poolSize: 10
+// });
 mongoose.connect("mongodb://mongo:27017/test", { useNewUrlParser: true });
 
 const db = mongoose.connection;
@@ -41,6 +44,20 @@ exports.retrieveListQuery = query => {
   ]).exec();
 };
 
+exports.retrieveone = query => {
+  //convert string to a number
+  //if/else block below converts string queries to integer before passing it to aggregate functions
+  // else block is for future use cases where PUT requests under mongoDB can be ObjectId type;
+
+  let parsedquery;
+  if (typeof query === "string") {
+    parsedquery = parseInt(query);
+  } else {
+    parsedquery = query;
+  }
+
+  return Review.findOne({ product_id: parsedquery });
+};
 // Retrieve Meta was split into 3 sub queries for optimization purposes
 //   characteristics, ratings, recommended
 

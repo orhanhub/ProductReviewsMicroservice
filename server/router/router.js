@@ -5,12 +5,14 @@ const router = express.Router();
 const {
   retrieveList,
   retrieveMeta,
-  postReview
+  retrieveOneList
 } = require("../controller/index");
 
 //Defined Routes below:
 router.get("/:product_id/list", retrieveList);
 router.get("/:product_id/meta", retrieveMeta);
+router.get("/:product_id/test", retrieveOneList);
+
 // router.post("/:product_id", postReview);
 //TODO: build these routes
 //router.post("/report/:review_id", reportReview)

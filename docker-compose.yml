@@ -1,20 +1,29 @@
 version: "3.2"
 services:
-  node:
-    build: .
+  server:
+    image: yararo/nodeserver:v1
+    deploy:
+      replicas: 3
+      restart_policy:
+        condition: on-failure
     ports:
-      - "3000:3000"
+      - "80:3000"
+    networks:
+      - webnet
     depends_on:
       - mongo
   mongo:
-    image: mongo
+    image: mongo:latest
+    deploy:
+      replicas: 3
     ports:
       - "27017:27017"
     volumes:
       - type: bind
-        source: my-vol
+        source: /data/db
         target: /data/db
-volumes:
-  my-vol:
-    external:
-      name: my-vol
+    networks:
+      - webnet
+
+networks:
+  webnet:

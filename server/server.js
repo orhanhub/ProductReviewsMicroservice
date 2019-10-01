@@ -5,6 +5,7 @@ const cookieParser = require("cookie-parser");
 const compression = require("compression");
 const app = express();
 const port = 3000;
+
 app.use(compression());
 
 //for toggle definition refer to toggle file:
