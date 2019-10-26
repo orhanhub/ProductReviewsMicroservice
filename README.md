@@ -2,7 +2,7 @@
 
 A microservice for a distributed application that achieves high throughput and low latency targets
 
-Scaling-up the Clothesy application's legacy backend [https://github.com/orhanhub/clothesy], for the Reviews widget only.
+Scaling-up the Clothesy application's legacy backend [https://github.com/orhanhub/clothesy], for the Reviews component only (one of the four components on the web portal)
 
 ### System Infrastructure
 
