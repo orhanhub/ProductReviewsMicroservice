@@ -5,7 +5,7 @@ A microservice for a distributed application that achieves high throughput and l
 Scaling-up the Clothesy application's legacy backend [https://github.com/orhanhub/clothesy], for the Reviews component only (one of the four components on the web portal)
 
 ### System Infrastructure
-3 EC2 t2.micro instances running Node server and MongoDB database 
+3 EC2 t2.micro instances running Node server and MongoDB database deployed with Docker Swarm
 
 ![](System.png)
 
