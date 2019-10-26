@@ -1,4 +1,4 @@
-# System Design Application
+# System Design for Product Reviews Microservice
 
 A microservice for a distributed application that achieves high throughput and low latency targets
 
